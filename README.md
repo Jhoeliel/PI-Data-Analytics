@@ -22,6 +22,7 @@ Analizando la data puesta a disposición y segmentando esta información usando 
 * Otra característica observada es el nivel al que los cursos van orientados. En gran mayoría son para un publico Beginner (>50%) siendo los cursos para nivel avanzado los de menor consumo (>2%).
 * Se observó también que las calificaciones que reciben en los reviews les dan en gran mayoría 5 puntos.
 * Analizando la relación entre el numero de alumno inscritos y el numero de reviews otorgadas se puede apreciar que estas ultimas representan un porcentaje bastante bajo. 
+* Tambien se realizo un analisis de sentimientos basado en los reviews pero solo con fines exploratorios que no pudo ser incluido en el Dashboard
 
 ## **Conclusiones**
 * La apreciación de los cursos es bastante alta principalmente en los cursos de nivel mas básico.
