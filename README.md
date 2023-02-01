@@ -33,6 +33,7 @@ Analizando la data puesta a disposición y segmentando esta información usando 
 * La inversión inicial en un MOOC debe estar basada en cursos de tecnología ya que estos son los mas demandados y consumidos por el publico.
 * Cuidar la calidad del servicio y contenidos con la intención de obtener el mas alto rating en todos los cursos.
 * Monitorear el índice de la relación entre reviews vs cantidad de alumnos. Para poder hacer un seguimiento más preciso se debería considerar comenzar este seguimiento desde las bases de datos relacionales para poder exportar al data lake información relevante que pueda ser aprovechada.
+* Así mismo se recomienda recopilar información respecto del número de cursos distintos que llega a tomar una misma persona
 
 
 
