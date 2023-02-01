@@ -1,112 +1,38 @@
-# PI-Data-Analytics
-Proyecto Individual Data Analytics
-
 # <h1 align=center> **PROYECTO INDIVIDUAL Nº3** </h1>
 <p align=center><img src=https://github.com/Jhoeliel/PI-Data-Analytics/blob/main/Dashboard.jpg><p>
 
-Bienvenidos al Proyecto Individual N°1 - Data Engineering, de la etapa de labs de [HENRY](https://www.soyhenry.com/)
+Bienvenidos al Proyecto Individual N°3 - Data Analitycs, de la etapa de labs de [HENRY](https://www.soyhenry.com/)
 <br/>
 Elaborado por Jhoeliel Palma Salazar
 <hr>
 
-## **Descripcion**
-Como parte del equipo de data de una empresa, el área de análisis de datos nos ha solicitado al área de Data Engineering ciertos requerimientos para el óptimo desarrollo de sus actividades. Para ello deberemos elaborar las *transformaciones* requeridas y disponibilizar los datos mediante la *elaboración y ejecución de una API*.
+## **Contexto**
+Los MOOCs (cursos masivos abiertos y online, por sus siglas en inglés) han revolucionado el mundo de la educación desde principios de la década pasada, cuando el profesor Sebastian Thrun comenzó con la transmisión online de su curso introductorio a la Inteligencia Artificial. Poco tiempo después, Thrun fundó Udacity y con el pasar de los años se han ido sumando otras plataformas como edX y Coursera, brindando servicios similares: acceso a contenido específico, de calidad y de manera práctica, desde la comodidad del hogar. Muchas de estas plataformas tienen contenido gratuito mientras que el modelo de negocio en general se basa ya sea en el pago de suscripciones recurrentes para acceso general o únicas, para acceder a certificaciones o a cursos premium. Con el aumento de la popularidad de los MOOCs, no solo han aparecido nuevas plataformas privadas como las mencionadas anteriormente, sino que también muchas universidades y organizaciones sin fines de lucro han sumado a la oferta haciendo el mercado mucho más competitivo. En este contexto, resulta imperante para cada plataforma, ajustar sus modelos de negocio, los cursos y el contenido que se ofrece en los mismos para lograr captar y retener a la mayor cantidad de clientes.
 
-De acuerdo a los lineamientos del area solicitante decidimos usar el siguiente Stack tecnologico:
-+ Python --> EDA, ETL, Coding
-+ FastApi --> Framework para disponibilizar los datos
-+ Deta --> Lightweight cloud compute runtime para el deployment
+## **Descrpcion**
+Empleando los nombres de los títulos de los cursos incluidos en los datasets se genero una WordCloud para recoger rápidamente y de manera visual un análisis de sentimientos sobre las preferencias de los cursos.
+Se realizo un EDA y algunas transformaciones así como Feature Engineering para preparar los datasets a ser usados en la preparación del DASHBOARD en Power BI. 
+Esta parte del trabajo tanto el WordCLoud como el EDA y preparación de los datasets esta documentado en los archivos .ipynb (jupiter notebooks) que están incluidos en este repositorio.
 
-Los datasets proporcionados por el área de análisis de datos se encuentran en la carpeta Datasets de este repositorio (datasets de las plataformas Amazon, Disney, Hulu y Netflix), asi como tambien el dataset resultante del proceso de ETL con el nombre `completo.csv`. Asi mismo en el root del repositorio encontraremos el archivo `main.py` en donde se encuentra la codificacion de las API requeridas, el archivo `ETL.ipynb` donde se encuentra la funcion que hizo el ETL de los datasets.
+## **Analisis**
+Analizando la data puesta a disposición y segmentando esta información usando la cantidad de estudiantes (suscriptores) se pudo apreciar los siguiente:
+* La categoría mas consumida es la de tecnologías de información ya sea web development o computer science. El nombre puede variar de acuerdo a la plataforma y las segunda categoría es la relacionada a negocios como: Bussiness Finance o Bussiness & Management según la plataforma.
+* Los cursos mas populares son los relacionados a las categorías mencionadas como por ejemplo: HTML5, web developer o data science.
+* El idioma Ingles es el de mayor presencia en estas plataformas teniendo una participación del 90% y el español con 8%.
+* Otra característica observada es el nivel al que los cursos van orientados. En gran mayoría son para un publico Beginner (>50%) siendo los cursos para nivel avanzado los de menor consumo (>2%).
+* Se observó también que las calificaciones que reciben en los reviews les dan en gran mayoría 5 puntos.
+* Analizando la relación entre el numero de alumno inscritos y el numero de reviews otorgadas se puede apreciar que estas ultimas representan un porcentaje bastante bajo. 
 
-## **Requerimientos del área de análisis de datos**
+## **Conclusiones**
+* La apreciación de los cursos es bastante alta principalmente en los cursos de nivel mas básico.
+* Existe una tendencia masiva al consumo de cursos de tecnología.
+* Dentro de los cursos de tecnología los favoritos son WEB develoment y Data Science.
+* La baja correlación entre los reviews y los alumnos inscritos podría significar posiblemente que son cursos que aun no se han terminado de cursar o han sido abandonados. Sin embargo los que si llegaron a terminarse han recibido alta calificación (rating).
 
-**`Transformaciones`**:  El analista de datos requiere estas, ***y solo estas***, transformaciones para sus datos:
-
-
-+ Generar campo **`id`**: Cada id se compondrá de la primera letra del nombre de la plataforma, seguido del show_id ya presente en los datasets (ejemplo para títulos de Amazon = **`as123`**)
-
-+ Los valores nulos del campo rating deberán reemplazarse por el string “**`G`**” (corresponde al maturity rating: “general for all audiences”
-
-+ De haber fechas, deberán tener el formato **`AAAA-mm-dd`**
-
-+ Los campos de texto deberán estar en **minúsculas**, sin excepciones 
-
-+ El campo ***duration*** debe convertirse en dos campos: **`duration_int`** y **`duration_type`**. El primero será un integer y el segundo un string indicando la unidad de medición de duración: min (minutos) o season (temporadas)
-
-
-Nota: El procedimiento de estas transformaciones se encuentra en `ETL.ipynb` 
-<br/><br/>
-
-**`Desarrollo API`**:  Para disponibilizar los datos la empresa usa el framework ***FastAPI***. El analista de datos requiere consultar:
-
-+ Cantidad de veces que aparece una keyword en el título de peliculas/series, por plataforma.
-
-+ Cantidad de películas por plataforma con un puntaje mayor a XX en determinado año.
-
-+ La segunda película con mayor score para una plataforma determinada, según el orden alfabético de los títulos.
-
-+ Película que más duró según año, plataforma y tipo de duración.
-
-+ Cantidad de series y películas por rating.
+## **Recomendaciones**
+* La inversión inicial en un MOOC debe estar basada en cursos de tecnología ya que estos son los mas demandados y consumidos por el publico.
+* Cuidar la calidad del servicio y contenidos con la intención de obtener el mas alto rating en todos los cursos.
+* Monitorear el índice de la relación entre reviews vs cantidad de alumnos. Para poder hacer un seguimiento más preciso se debería considerar comenzar este seguimiento desde las bases de datos relacionales para poder exportar al data lake información relevante que pueda ser aprovechada.
 
 
-Nota: El codigo fuente de las funciones API se encuentra en `main.py`
-<br/><br/>
-
-**`Deployment`**: La empresa suele usar [Deta](https://www.deta.sh/?ref=fastapi) (no necesita dockerizacion) para realizar el deploy de sus aplicaciones. Sin embargo, también puede usar [Railway](https://railway.app/) y [Render](https://render.com/docs/free#free-web-services) (necesitan dockerizacion).
-
-Para el desarrollo de este proyecto se decidio emplear [Deta](https://www.deta.sh/?ref=fastapi) debido a la simplicidad de su implementacion.
-<br/>
-
-<br/>
-
-**`Video`**: El Tech Lead que delegó esta tarea quiere dar un feedback sobre el trabajo realizado. Para esto, pide que sintetice en un video de ***5 minutos*** del trabajo realizado, resaltando cómo ayuda el mismo a los analistas de datos.
-<br/>
-
-## **APIs producidas**
-
-**`API 1 - get_word_count():`** Cantidad de veces que aparece una keyword en el título de peliculas/series, por plataforma.
-
-Nombre: **get_word_count**
-
-Parametros de entrada (2): **plataforma : str / keyword : str**
-
-Parametros de salida (2): **plataforma : str / count : int**
-
-**`API 2 - get_score_count():`** Cantidad de películas por plataforma con un puntaje mayor a XX en determinado año.
-
-Nombre: **get_score_count**
-
-Parametros de entrada (3): **plataforma : str / score : int / year : int**
-
-Parametros de salida (2): **plataforma : str / count : int**
-
-**`API 3 - get_second_score():`** La segunda película con mayor score para una plataforma determinada, según el orden alfabético de los títulos.
-
-Nombre: **get_second_score**
-
-Parametros de entrada (1): **plataforma : str**
-
-Parametros de salida (2): **title : str / score : int**
-
-**`API 4 - get_longest():`** Película que más duró según año, plataforma y tipo de duración.
-
-Nombre: **get_longest**
-
-Parametros de entrada (3): **plataforma : str / duracion : str / year : int**
-
-Parametros de salida (3): **title : str / duracion_int : int / duracion_type : str**
-
-**`API 5 - get_rating_count():`** Película que más duró según año, plataforma y tipo de duración.
-
-Nombre: **get_rating_count**
-
-Parametros de entrada (1): **rating : str**
-
-Parametros de salida (2): **rating : str / cantidad : int**
-
-## **Información complementaria**
-
-**Test site: https://pi-jdps.deta.dev/docs**
 
